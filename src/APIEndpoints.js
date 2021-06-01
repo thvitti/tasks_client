@@ -1,5 +1,5 @@
-let APIRoot = "http://localhost:3001";
-//let APIRoot = "https://rails-react-todo-api.herokuapp.com";
+// let APIRoot = "http://localhost:3001";
+let APIRoot = "https://rails-react-todo-api.herokuapp.com";
 
 const APIEndpoints = {
 

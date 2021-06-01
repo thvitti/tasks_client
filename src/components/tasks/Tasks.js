@@ -7,8 +7,6 @@ import List from './list/List';
 import CreateTask from './create_tasks/CreateTasks';
 import Button from 'react-bootstrap/Button';
 import APIEndpoints from '../../APIEndpoints'
-// let ip = 'http://localhost:3001'
-
 class Tasks extends Component {
 
   constructor(props) {
@@ -20,8 +18,6 @@ class Tasks extends Component {
   }
 
   async loadTasks() {
-    // let response = await fetch(`${ip}/tasks`);
-    // let response = await fetch(`http://localhost:3001/tasks`);
 
     let response = await fetch(APIEndpoints.TASKS);
     const tasks = await response.json();
@@ -30,7 +26,6 @@ class Tasks extends Component {
 
   async deleteAllTasks(){
       if( window.confirm('This action will remove all tasks. Continue?') ){
-        // await fetch(`${ip}/tasks/destroy_all`, {method: 'DELETE'})
         await fetch(APIEndpoints.TASKS_DESTROY_ALL, {method: 'DELETE'})
         this.loadTasks();
       }
