@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import APIEndpoints from '../../../APIEndpoints'
 
 class List extends Component {
 
   async deleteTask(task) {
       if ( window.confirm(`Are you sure you want to delete: "${task.title}" ?`) ){
-        await fetch(`/tasks/${task.id}`, {method: 'DELETE'} );
+        await fetch(`${APIEndpoints.TASKS}/${task.id}`, {method: 'DELETE'} );
           this.props.loadTasks();
       }
   }
@@ -27,7 +28,7 @@ class List extends Component {
 
        let data = { method, headers, body }
 
-       await fetch(`/tasks/${task.id}`, data);
+       await fetch(`${APIEndpoints.TASKS}/${task.id}`, data);
 
        this.props.loadTasks();
   }

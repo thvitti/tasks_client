@@ -3,8 +3,9 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import APIEndpoints from '../../../APIEndpoints'
 
-let ip = 'https://rails-react-todo-api.herokuapp.com'
+// let ip = 'https://rails-react-todo-api.herokuapp.com'
 
 function CreateTask(props) {
     const [title, setTitle] = useState('');
@@ -26,7 +27,9 @@ function CreateTask(props) {
 
       let payload = getData()
 
-      await fetch(`${ip}/tasks`, payload)
+      // await fetch(`${ip}/tasks`, payload)
+      await fetch(APIEndpoints.TASKS, payload)
+
        .catch(error => console.log(error));
        clearForm()
        props.loadTasks();
