@@ -70,8 +70,7 @@ function CreateTask(props) {
 
         <Modal.Body>
           <Form.Row>
-            <Form.Group as={Col} md="6" controlId="validationCustom">
-              <Form.Label>New Task</Form.Label>
+            <Form.Group as={Col} controlId="validationCustom">
               <Form.Control type="text"
                            placeholder="Enter with your task..."
                            value={title || ''}
