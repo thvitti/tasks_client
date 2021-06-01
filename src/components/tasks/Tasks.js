@@ -7,7 +7,7 @@ import List from './list/List';
 import CreateTask from './create_tasks/CreateTasks';
 import Button from 'react-bootstrap/Button';
 
-
+let ip = 'https://rails-react-todo-api.herokuapp.com'
 class Tasks extends Component {
 
   constructor(props) {
@@ -19,14 +19,17 @@ class Tasks extends Component {
   }
 
   async loadTasks() {
-    let response = await fetch(`/tasks`);
+    let headers = new Headers();
+    headers.append('Access-Control-Allow-Origin', '*');
+
+    let response = await fetch(`${ip}/tasks`);
     const tasks = await response.json();
     this.setState({ tasks: tasks });
   }
 
   async deleteAllTasks(){
       if( window.confirm('This action will remove all tasks. Continue?') ){
-        await fetch(`/tasks/destroy_all`, {method: 'DELETE'})
+        await fetch(`${ip}/tasks/destroy_all`, {method: 'DELETE'})
         this.loadTasks();
       }
   }
